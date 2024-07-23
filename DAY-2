@@ -1,0 +1,38 @@
+package practice_java;
+import java.util.*;
+import java.util.Scanner;
+public class simpleCalc {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n1,n2;
+		System.out.println("Enter first number:");
+		n1=s.nextInt();
+		System.out.println("Enter second number:");
+		n2=s.nextInt();
+		System.out.println("1.Addition\n 2.Subraction\n 3.Multiple \n 4.Division");
+		System.out.println("Choose Operator:");
+		int op=s.nextInt();
+		int result=0;
+		switch(op)
+		{
+		case 1:
+			result=n1+n2;
+			break;
+		case 2:
+			result=n1-n2;
+			break;
+		case 3:
+			result=n1*n2;
+			break;
+		case 4:
+			result=n1/n2;
+			break;
+		default:
+			System.out.println("Enter valid Operator!");
+		}
+		System.out.println("Result :"+result);
+
+	}
+
+}
