@@ -1,0 +1,34 @@
+package practice_java;
+import java.util.*;
+import java.util.Scanner;
+
+public class MinMaxOfArray {
+	public static void main(String[] args) {
+		//method1:assign min,max arr[0].then compare with others change it.
+		int n,min,max;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of Elements:");
+		n=sc.nextInt();
+		int[] arr=new int[n];
+		System.out.println("Enter array elements:");
+		for(int i=0;i<n;i++) {
+			arr[i]=sc.nextInt();
+		}
+		System.out.print("Original array is:");
+	    for(int i=0;i<n;i++) {
+		System.out.print(arr[i]+" ");
+	    }
+	    min=arr[0];
+	    max=arr[0];
+	    for(int i=0;i<n;i++) {
+	    	if(arr[i]<min) {
+	    		min=arr[i];
+	    	}
+	    	if(arr[i]>max) {
+	    		max=arr[i];
+	    	}
+	    }
+	    System.out.print("\n Smallest element:"+min +"\n Laregst element is:"+max);
+	}
+
+}
