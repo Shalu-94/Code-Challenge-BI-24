@@ -1,0 +1,41 @@
+package practice_java;
+import java.util.*;
+import java.util.Scanner;
+public class binarysearch {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n;
+		System.out.println("Enter number of elements:");
+		n=sc.nextInt();
+		System.out.println("Enter Sorted array:");
+		int[] a=new int[n];
+		for(int i=0;i<n;i++) {
+			a[i]=sc.nextInt();
+		}
+		int target;
+		int flag=0;
+		System.out.println("Enter target value:");
+		target=sc.nextInt();
+		int lb=0,ub=n-1;
+		while(lb<=ub) {
+			int mid=(lb+ub)/2;
+			if(a[mid]==target) {
+				System.out.println("Element found at index: "+mid);
+				flag=1;
+				break;
+			}
+			else if(a[mid]<target) {
+				lb=mid+1;
+			}
+			else {
+				ub=mid-1;
+			}
+		}
+		if(flag==0) {
+			System.out.println("Element not found!");
+		}
+		
+	}
+
+}
