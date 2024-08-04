@@ -1,0 +1,22 @@
+package practice_java;
+import java.util.Scanner;
+public class pointers {
+	public static void swapping(int a,int b) {
+		 int temp;
+		 temp=a;
+		 a=b;
+		 b=temp;
+		 System.out.println("Value of A is:"+a);
+	     System.out.println("Value of B is:"+b);
+	}
+	public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+     int a,b;
+     System.out.println("Enter value of A:");
+     a=sc.nextInt();
+     System.out.println("Enter value of B:");
+     b=sc.nextInt();
+     System.out.println("After Swapping two values..");
+     swapping(a,b);
+	}
+}
