@@ -1,0 +1,163 @@
+//Stack using array
+package practice_java;
+import java.util.*;
+//stack using array
+			class stackcls { 
+		    static final int MAX = 1000; 
+		    int top; 
+		    int a[] = new int[MAX]; // Maximum size of Stack 
+
+		    boolean isEmpty() 
+		    { 
+		        return (top < 0); 
+		    } 
+		    stackcls() 
+		    { 
+		        top = -1; 
+		    } 
+
+		    boolean push(int x) 
+		    { 
+		        if (top >= (MAX - 1)) { 
+		            System.out.println("Stack Overflow"); 
+		            return false; 
+		        } 
+		        else { 
+		            a[++top] = x; 
+		            System.out.println(x + " pushed into stack"); 
+		            return true; 
+		        } 
+		    } 
+
+		    int pop() 
+		    { 
+		        if (top < 0) { 
+		            System.out.println("Stack Underflow"); 
+		            return 0; 
+		        } 
+		        else { 
+		            int x = a[top--]; 
+		            return x; 
+		        } 
+		    } 
+
+		    int peek() 
+		    { 
+		        if (top < 0) { 
+		            System.out.println("Stack Underflow"); 
+		            return 0; 
+		        } 
+		        else { 
+		            int x = a[top]; 
+		            return x; 
+		        } 
+		    } 
+		    
+		    void print(){ 
+		    for(int i = top;i>-1;i--){ 
+		    System.out.print(" "+ a[i]); 
+		    } 
+		} 
+		} 
+
+		// Driver code 
+		 public class stack { 
+		    public static void main(String args[]) 
+		    { 
+		        stackcls s = new stackcls(); 
+		        s.push(10); 
+		        s.push(20); 
+		        s.push(30); 
+		        System.out.println(s.pop() + " Popped from stack"); 
+		        System.out.println("Top element is :" + s.peek()); 
+		        System.out.print("Elements present in stack :"); 
+		        s.print(); 
+		    } 
+		} 
+
+//Stack using Linked list
+package practice_java;
+import java.util.*;
+class Node {
+ int data;
+ Node next;
+ Node(int new_data) {
+     this.data = new_data;
+     this.next = null;
+ }
+}
+
+class stackllist {
+
+ Node head;
+
+ stackllist() { this.head = null; }
+
+ boolean isEmpty() {
+   
+     return head == null;
+ }
+
+  void push(int new_data) {
+   
+     // Create a new node with given data
+     Node new_node = new Node(new_data);
+     if (new_node == null) {
+         System.out.println("\nStack Overflow");
+         return;
+     }
+     new_node.next = head;
+     head = new_node;
+ }
+
+ // Function to remove the top element from the stack
+ void pop() {
+   
+     // Check for stack underflow
+     if (isEmpty()) {
+         System.out.println("\nStack Underflow");
+         return;
+     }
+     else {
+   
+         Node temp = head;
+         head = head.next;
+         temp = null;
+     }
+ }
+
+ // Function to return the top element of the stack
+ int peek() {
+   
+     // If stack is not empty, return the top element
+     if (!isEmpty())
+         return head.data;
+     else {
+         System.out.println("\nStack is empty");
+         return Integer.MIN_VALUE;
+     }
+ }
+}
+
+//Driver code
+public class stackusingllist  {
+ public static void main(String[] args)
+ {
+     // Creating a stack
+	 stackllist st = new stackllist();
+
+     // Push elements onto the stack
+     st.push(10);
+     st.push(20);
+     st.push(30);
+     st.push(40);
+     st.push(50);
+     System.out.println("Top element is " + st.peek());
+     System.out.println("Removing two elements...");
+     st.pop();
+     st.pop();
+
+     // Print top element of the stack
+     System.out.println("Top element is " + st.peek());
+ }
+}
