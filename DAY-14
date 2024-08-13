@@ -1,0 +1,82 @@
+package practice_java;
+import java.io.*;
+
+//Class describing a node of tree
+class Nodetree {
+
+ int data;
+ Nodetree left;
+ Nodetree right;
+ Nodetree(int v)
+ {
+     this.data = v;
+     this.left = this.right = null;
+ }
+}
+
+class trees {
+ // Inorder Traversal
+ public static void printInorder(Nodetree node)
+ {
+     if (node == null)
+         return;
+
+     // Traverse left subtree
+     printInorder(node.left);
+
+     // Visit node
+     System.out.print(node.data + " ");
+
+     // Traverse right subtree
+     printInorder(node.right);
+ }
+ //
+ public static void printPreorder(Nodetree node)
+ {
+   if (node == null)
+     return;
+
+   // Visit node
+   System.out.print(node.data + " ");
+
+   // Traverse left subtree
+   printPreorder(node.left);
+
+   // Traverse right subtree
+   printPreorder(node.right);
+ }
+ //
+ public static void printPostorder(Nodetree node)
+ {
+   if (node == null)
+     return;
+
+   // Traverse left subtree
+   printPreorder(node.left);
+
+   // Traverse right subtree
+   printPreorder(node.right);
+    
+     // Visit node
+   System.out.print(node.data + " ");
+ }
+ // Driver Code
+ public static void main(String[] args)
+ {
+     // Build the tree
+     Nodetree root = new  Nodetree(100);
+     root.left = new  Nodetree(20);
+     root.right = new  Nodetree(200);
+     root.left.left = new  Nodetree(10);
+     root.left.right = new  Nodetree(150);
+     root.right.right = new  Nodetree(300);
+
+     // Function call
+     System.out.print("Inorder Traversal: ");
+     printInorder(root);
+     System.out.print("\n Preorder Traversal: ");
+     printPreorder(root);
+     System.out.print("\n Postorder Traversal: ");
+     printPostorder(root);
+ }
+}
