@@ -72,3 +72,77 @@ public class QueueUsingArray {
     System.out.println("Front element:"+ queue.peek());
   }  
 }  
+
+//QUEUE USING LINKEDLIST
+package practice_java;
+class nodecreation {
+    int data;
+    Node next;
+
+    nodecreation(int new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+class Queue {
+      Node front, rear;
+
+    Queue() { front = rear = null; }
+
+    boolean isEmpty() {
+        return front == null && rear == null;
+    }
+
+    void enqueue(int new_data) {
+      
+        Node new_node = new Node(new_data);
+
+        if (rear == null) {
+            front = rear = new_node;
+            System.out.println("Enqueue:"+new_data);
+            return;
+        }
+        rear.next = new_node;
+        rear = new_node;
+        System.out.println("Enqueue:"+new_data);
+    }
+    void dequeue() {
+    
+        if (isEmpty()) {
+            System.out.println("Queue Underflow");
+            return;
+        }
+
+        Node temp = front;
+        front = front.next;
+      
+        if (front == null) {
+            rear = null;
+        }
+    }
+
+    int getFront() {
+     
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return Integer.MIN_VALUE;
+        }
+        return front.data;
+    }
+}
+public class QueueUsingLlist{
+    public static void main(String[] args) {
+        Queue q = new Queue();
+
+        // Enqueue elements into the queue
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.enqueue(50);
+        q.dequeue();
+        q.dequeue();
+        System.out.println("Peek: " + q.getFront());
+   
+    }
+}
